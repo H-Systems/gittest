@@ -1,0 +1,140 @@
+01장 깃 시작하기
+01-1 지옥에서 온 관리자, 깃
+01-2 깃 설치하기
+01-3 리눅스 명령 연습하기
+01장에서 꼭 기억해야 할 명령
+
+02장 깃으로 버전 관리하기
+02-1 깃 저장소 만들기
+02-2 버전 만들기
+02-3 커밋 내용 확인하기
+02-4 버전 만드는 단계마다 파일 상태 알아보기
+02-5 작업 되돌리기
+02장에서 꼭 기억해야 할 명령
+
+03장 깃과 브랜치
+03-1 브랜치란?
+03-2 브랜치 만들기
+03-3 브랜치 정보 확인하기
+03-4 브랜치 병합하기
+03-5 브랜치 관리하기
+03장에서 꼭 기억해야 할 명령
+
+04장 깃허브로 백업하기
+04-1 원격 저장소와 깃허브
+04-2 깃허브 시작하기
+04-3 지역 저장소를 원격 저장소에 연결하기
+04-4 원격 저장소에 올리기 및 내려받기
+04-5 깃허브에 SSH 원격 접속하기
+04장에서 꼭 기억해야 할 명령
+
+05장 깃허브로 협업하기
+05-1 여러 컴퓨터에서 깃허브 저장소 함께 사용하기
+05-2 원격 브랜치 정보 가져오기
+05-3 협업의 기본 알아보기
+05-4 협업에서 브랜치 사용하기
+05장에서 꼭 기억해야 할 명령
+
+06장 깃허브에서 개발자와 소통하기
+06-1 깃허브 프로필 관리하기
+06-2 README 파일 작성하기
+06-3 오픈 소스 프로젝트에 기여하기
+06-4 깃허브에 개인 블로그 만들기
+실무 밀착 꿀팁!
+비주얼 스튜디오 코드에서 깃 활용하기
+
+
+
+C:\Users\user>git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+
+
+==========	==========	==========	==========	==========	==========
+
+Git 명령어
+
+git init : 깃 저장소 생성
+git add : commit할 파일 정보 추가
+git reset : add한 파일 모두 취소
+
+git commit : add된 파일들을 commit
+git commit -am [메시지 내용]: 알고있는 파일들 중 바뀐 것을 자동으로 add시키고 commit 메세지 입력이 필요없이 바로 commit이 됨
+git log : log(commit) 정보 출력
+git log --reverse : log(commit) 정보 거꾸로 출력
+git checkout [commit구분자] : 커밋된 시점으로 돌아감
+git clone [url] [dir] : 원격 저장소(url)에 있는 내용을 디렉토리(dir) 지정
+git remote add [원격저장소 이름, local과 연결된 이름을 보통 origin이라 한다] [url] : 원격 저장소를 추가한다.
+git remote remove [원격 저장소 이름] : 원격 저장소를 지움
+git push -u [원격 저장소 이름] [로컬 저장소 이름] : 로컬 저장소에 있는 내용을 원격 저장소에 저장(push), -u 옵션은 원격 저장소와 로컬 저장소를 연결시켜준다.
+git push : 연결되있는 로컬 저장소에 push
+
+
+git의 3가지 상태
+
+  - working Directory
+    * 실제 작업이 일어나는 곳이다. 최초 git directory에서 checkout 받아 작업하게 되는 공간이다. 
+    * 최초 받은 파일들은 수정한적도 없고 tracked(추적된대상) 상태의 파일이 된다. 
+    * checkout 받은 파일을 수정하면 Modified 파일이 된다. 
+
+  - Staging Area
+    * working Directory에서 추가되거나 변경된 사항의 리스트가 저장되는 공간이다. (리스트가 저장된다는것이 주목해야 한다.)
+    * working Directory에서 새로 추가된 파일은 추적되지 않는(관리) untracked 상태의 파일이다.  
+    * untracked 는 git에서 추적되고 있지 않기에 git add를 통해 Staging Area에 등록해줘야 한다. 
+    * 변경된 내용들과 add를 통해 등록된 리스트가 Staging Area에 등록되면 최종 커밋 전 단계가 된다. (커밋된것이 아니다.)
+    *  Staging Area에 추가된 파일들은 Staged 단계이다. 
+
+  - git directory
+    * 커밋된 파일은 모두 Committed 파일이다. 
+    * working Directory에서 수정된 파일은 Staging Area 단계를 거처 최종 커밋된 파일은 git directory에 저장된다. 
+
+
+Reset의 역할
+
+1단계: HEAD 이동 (--soft)
+
+2단계: Index 업데이트 (--mixed)
+
+3단계: 워킹 디렉토리 업데이트 (--hard)
